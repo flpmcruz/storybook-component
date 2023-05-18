@@ -29,7 +29,7 @@ export default meta;
 
 // una forma
 const Template: StoryFn<ButtonsProps> = (args) => <MyLabel {...args} />;
-export const Basic = Template.bind({});
+export const Basic: any = Template.bind({});
 Basic.args = {
     size: 'normal',
     label: 'Normal',

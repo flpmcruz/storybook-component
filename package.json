@@ -1,16 +1,39 @@
 {
-  "name": "storybook",
-  "private": true,
+  "name": "flp-storybook-component",
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "license": "MIT",
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/flpmcruz/storybook-component.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flpmcruz/storybook-component.git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "build-storybook",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "build": "npm run clean && tsc && npm run copy",
+    "clean": "rimraf dist",
+    "copy": "copyfiles -u 1 src/**/*.css dist/"
+  },
+  "peerDependencies": {
+    "react": ">=16",
+    "typescript": ">=4.0.0"
   },
   "dependencies": {
-    "react": "^18.2.0",
+    "react": ">=16",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
@@ -25,13 +48,24 @@
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
     "@vitejs/plugin-react": "^4.0.0",
+    "semantic-release": "^21.0.2",
+    "copyfiles": "^2.4.1",
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
+    "rimraf": "^5.0.1",
     "storybook": "^7.0.12",
     "typescript": "^5.0.2",
     "vite": "^4.3.2"
-  }
+  },
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    "@semantic-release/github",
+    "@semantic-release/npm",
+    "@semantic-release/git"
+  ]
 }

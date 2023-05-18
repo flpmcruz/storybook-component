@@ -1,0 +1,10 @@
+import { Meta, StoryObj } from '@storybook/react';
+declare const meta: Meta;
+export default meta;
+export declare const Basic: any;
+type Story = StoryObj<typeof meta>;
+export declare const h1: Story;
+export declare const AllCaps: Story;
+export declare const Secondary: Story;
+export declare const Tertiary: Story;
+export declare const CustomColor: Story;
